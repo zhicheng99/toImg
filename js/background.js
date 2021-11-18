@@ -28,7 +28,13 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
     // return '12321312';
 
 });
+ 
 
+chrome.browserAction.onClicked.addListener(function (tab) {
+// alert(tab.url);
+        chrome.tabs.sendMessage(tab.id, {type: 'createEle'});
+
+});
 
 chrome.contextMenus.create({
     title: "页面内容采集器",
